@@ -1,0 +1,12 @@
+import pymysql
+conn = pymysql.connect(host = 'localhost', user = 'root', password = '비번', db = '데이터베이스 이름')
+
+curs = conn.cursor()
+
+sql = "SELECT * FROM sample_drug LIMIT 100"   #실행할 쿼리문 작성
+curs.execute(sql)                             #쿼리문 실행
+
+rows = curs.fetchall()                        #데이터 패치
+
+for i in rows:
+  print(i)
